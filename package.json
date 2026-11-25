@@ -1,0 +1,63 @@
+{
+  "name": "paperclip-plugin-decision-triage",
+  "version": "0.3.4",
+  "private": true,
+  "description": "Paperclip plugin that routes board- and user-owned decision items to a triage agent and wakes it",
+  "license": "MIT",
+  "author": "LiterallyBlah",
+  "homepage": "https://github.com/LiterallyBlah/paperclip-plugin-decision-triage",
+  "bugs": {
+    "url": "https://github.com/LiterallyBlah/paperclip-plugin-decision-triage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiterallyBlah/paperclip-plugin-decision-triage.git"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "paperclipPlugin": {
+    "manifest": "./dist/manifest.js",
+    "worker": "./dist/worker.js"
+  },
+  "keywords": [
+    "paperclip",
+    "plugin",
+    "triage",
+    "agents"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "clean": "rm -rf dist artifact",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
+    "test": "vitest run",
+    "build:artifact": "node scripts/build-artifact.mjs"
+  },
+  "dependencies": {
+    "@paperclipai/plugin-sdk": "2026.1106.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  },
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "packageManager": "pnpm@10.34.9",
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
